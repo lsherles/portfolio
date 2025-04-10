@@ -5,6 +5,7 @@ body {
     font: 100%/1.5 system-ui;
     max-width: 100ch;
     padding: 1em;
+    margin-inline: auto;
 
   }
 nav {
@@ -42,4 +43,53 @@ nav {
   accent-color: var(--color-accent);
 }
   
-  
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+}
+
+
+label {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+
+}
+input,
+textarea {
+  font: inherit;
+  padding: 0.5em;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+button {
+  grid-column: 1 / -1;
+  font: inherit;
+  cursor: pointer;
+}
+
+.projects{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+}
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+}
+.projects h2 {
+  margin: 0;
+}
+
+h1{
+  font-size: 400%;
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+
