@@ -4,37 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Information</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../projects/index.html">Projects</a>
+        <a href="../resume/index.html">Resume</a>
+        <a href="index.html" class="current">Contact</a>
+        <a href="https://github.com/lsherles" target="_blank">GitHub</a>
+    </nav>
     <h1>
         Lucas Sherles - Contact info
     </h1>
-        <nav>
-        <a href="../index.html">Home</a>
-        <br><br>        
-        <a href="../projects/index.html">Projects</a>
-        <br><br>
-        <a href="../resume/index.html">Resume</a>
-        <br><br>
-        <a href="index.html">Contact</a>
-        <br><br>
-        <a href="https://github.com/lsherles" target="_blank">GitHub</a>
-        <br><br>
-    </nav>
     <form action="mailto:lucasherles@gmail.com" method="POST" enctype="text/plain">
         <label>
             Email:<input name="email" type="email" required>
         </label>
-        <br><br>
         <label>
             Subject:<input name="subject" required>
-        </label>
-        <br><br>
-        
+        </label>        
         <label>
             Message:<textarea name="body" rows="4" required></textarea>
         </label>
-        <br><br>
 
         <button>Send</button>    </form>
 </body>
