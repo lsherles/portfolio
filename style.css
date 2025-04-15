@@ -1,7 +1,4 @@
 body {
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
     font: 100%/1.5 system-ui;
     max-width: 100ch;
     padding: 1em;
@@ -24,6 +21,10 @@ nav {
     text-decoration: none;
     color: inherit;
     border-radius: 4px;
+    --border-color: oklch(50% 10% 200 / 40%);
+    border-bottom-color: var(--border-color);
+    
+
   }
   
   nav a.current {
@@ -35,12 +36,15 @@ nav {
   }
 
   nav a:hover{
-    background-color: oklch(from var(--color-accent) 95% 5% h);
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
     border-bottom: 0.4em solid var(--color-accent);
   }
 :root{
   --color-accent: oklch(0.68 0.2338 22.87);
   accent-color: var(--color-accent);
+  color-scheme:  light dark;
+  background-color: canvas;
+  color: canvastext;
 }
   
 form {
@@ -92,4 +96,10 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 
-
+label.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
+}
