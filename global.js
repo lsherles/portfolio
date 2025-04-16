@@ -31,24 +31,26 @@ const BASE_PATH = (location.hostname === "localhost" || location.hostname === "1
 
 
 for (let p of pages) {
-  let { url, title } = p;
-  if (!url.startsWith('http')) {
-    url = BASE_PATH + url;
+    let url = p.url;
+    let title = p.title;
+    url = !url.startsWith('http') ? BASE_PATH + url : url;
+    let a = document.createElement('a');
+    a.href = url;
+    a.textContent = title;
+    nav.append(a);
+    a.classList.toggle(
+      'current',
+      a.host === location.host && normalizePath(a.pathname) === normalizePath(location.pathname),
+    );
+    
+    function normalizePath(path) {
+      return path.endsWith('/') && path !== '/' ? path.slice(0, -1) : path;
+    }
+    
+    if (a.host !== location.host) {
+      a.target = "_blank";
+    }
   }
-
-  let a = document.createElement('a');
-  a.href = url;
-  a.textContent = title;
-  nav.append(a);
-
-  a.classList.toggle(
-    'current',
-    a.host === location.host && a.pathname === location.pathname,
-  );
-  if (a.host !== location.host) {
-    a.target = "_blank";
-  }
-}
 
   document.body.insertAdjacentHTML(
     'afterbegin',
