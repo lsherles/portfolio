@@ -14,10 +14,10 @@ function $$(selector, context = document) {
 
 let pages = [
     { url: '', title: 'Home' },
-    { url: 'projects/', title: 'Projects' },
-    { url: 'resume/', title: 'Resume' },
-    { url: 'contact/', title: 'Contact' },
-    { url: 'https://github.com/lsherles', title: 'GitHub' },
+    { url: '/projects/', title: 'Projects' },
+    { url: '/resume/', title: 'Resume' },
+    { url: '/contact/', title: 'Contact' },
+    { url: '/https://github.com/lsherles', title: 'GitHub' },
   ];
 
  
@@ -27,7 +27,7 @@ document.body.prepend(nav);
 
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
 ? "/"                  // Local server
-: "/portfolio/";         // GitHub Pages repo name
+: "/portfolio";         // GitHub Pages repo name
 
 
 for (let p of pages) {
@@ -39,14 +39,9 @@ for (let p of pages) {
     a.textContent = title;
     nav.append(a);
     a.classList.toggle(
-      'current',
-      a.host === location.host && normalizePath(a.pathname) === normalizePath(location.pathname),
-    );
-    
-    function normalizePath(path) {
-      return path.endsWith('/') && path !== '/' ? path.slice(0, -1) : path;
-    }
-    
+        'current',
+        a.host === location.host && a.pathname === location.pathname,
+      );
     if (a.host !== location.host) {
       a.target = "_blank";
     }
