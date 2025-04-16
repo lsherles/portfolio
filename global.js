@@ -27,13 +27,15 @@ document.body.prepend(nav);
 
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
 ? "/"                  // Local server
-: "portfolio/";         // GitHub Pages repo name
+: "/portfolio/";         // GitHub Pages repo name
 
 
 for (let p of pages) {
     let url = p.url;
     let title = p.title;
-    url = !url.startsWith('http') ? BASE_PATH + url : url;
+    if (!url.startsWith('http')) {
+      url = BASE_PATH + url;
+    }
     let a = document.createElement('a');
     a.href = url;
     a.textContent = title;
