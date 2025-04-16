@@ -4,30 +4,21 @@ function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
-// const navLinks = $$("nav a");
-
-// #const currentLink = navLinks.find(
-//   (a) => a.host === location.host && a.pathname === location.pathname
-// );
-
-// currentLink?.classList.add('current');
-
 let pages = [
     { url: '', title: 'Home' },
-    { url: '/projects/', title: 'Projects' },
-    { url: '/resume/', title: 'Resume' },
-    { url: '/contact/', title: 'Contact' },
-    { url: '/https://github.com/lsherles', title: 'GitHub' },
+    { url: 'projects/', title: 'Projects' },
+    { url: 'resume/', title: 'Resume' },
+    { url: 'contact/', title: 'Contact' },
+    { url: 'https://github.com/lsherles', title: 'GitHub' },
   ];
 
  
 
 let nav = document.createElement('nav');
-document.body.prepend(nav);
 
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
 ? "/"                  // Local server
-: "/portfolio";         // GitHub Pages repo name
+: "/portfolio/";         // GitHub Pages repo name
 
 
 for (let p of pages) {
@@ -91,7 +82,8 @@ if ("colorScheme" in localStorage) {
     location.href = url; // This opens the mail client
   });
   
-  
+  document.body.prepend(nav);
+
 
 
 
