@@ -4,8 +4,13 @@ function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
+const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+? "/"                  // Local server
+: "/portfolio/";         // GitHub Pages repo name
+
+
 let pages = [
-    { url: '', title: 'Home' },
+    { url: BASE_PATH, title: 'Home' },
     { url: 'projects/', title: 'Projects' },
     { url: 'resume/', title: 'Resume' },
     { url: 'contact/', title: 'Contact' },
@@ -13,18 +18,14 @@ let pages = [
   ];
 
  
-
 let nav = document.createElement('nav');
 
-const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-? "/"                  // Local server
-: "/portfolio/";         // GitHub Pages repo name
 
 
 for (let p of pages) {
     let url = p.url;
     let title = p.title;
-    url = !url.startsWith('http') ? BASE_PATH + url : url;
+    url = url.startsWith('http') ? url : url;
     let a = document.createElement('a');
     a.href = url;
     a.textContent = title;
