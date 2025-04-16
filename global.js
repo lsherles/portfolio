@@ -18,7 +18,7 @@ let pages = [
  
 
 let nav = document.createElement('nav');
-
+document.body.prepend(nav);
 
 
 for (let p of pages) {
@@ -82,7 +82,7 @@ if ("colorScheme" in localStorage) {
     location.href = url; // This opens the mail client
   });
   
-  document.body.prepend(nav);
+
 
 
 
