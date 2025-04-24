@@ -82,8 +82,68 @@ if ("colorScheme" in localStorage) {
     location.href = url; // This opens the mail client
   });
   
+  
+  export async function fetchJSON(url) {
+    try {
+      // Fetch the JSON file from the given URL
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch projects: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      return data;
+
+    } catch (error) {
+      console.error('Error fetching or parsing JSON data:', error);
+    }
+  }
+ 
 
 
+  export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+    // Validate container
+    if (!containerElement || !(containerElement instanceof HTMLElement)) {
+      console.error('Invalid container element provided.');
+      return;
+    }
+  
+    // Validate headingLevel
+    const validHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+    if (!validHeadings.includes(headingLevel)) {
+      console.warn(`Invalid heading level "${headingLevel}" passed. Defaulting to <h2>.`);
+      headingLevel = 'h2';
+    }
+  
+    // Clear existing content
+    containerElement.innerHTML = '';
+  
+    // Loop through all projects
+    projects.forEach(project => {
+      // Create article element
+      const article = document.createElement('article');
+  
+      // Use default placeholder values if missing
+      const title = project.title || 'Untitled Project';
+      const image = project.image || 'https://via.placeholder.com/300x200?text=No+Image';
+      const description = project.description || 'No description provided.';
+  
+      // Set article HTML with dynamic heading level
+      article.innerHTML = `
+        <${headingLevel}>${title}</${headingLevel}>
+        <img src="${image}" alt="${title}">
+        <p>${description}</p>
+      `;
+  
+      // Append to the container
+      containerElement.appendChild(article);
+    });
+  }
+  
+  export async function fetchGitHubData(username) {
+    return fetchJSON(`https://api.github.com/users/${username}`);
+  }
 
-
+  
 
