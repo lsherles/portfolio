@@ -126,12 +126,17 @@ if ("colorScheme" in localStorage) {
   
       // Use default placeholder values if missing
       const title = project.title || 'Untitled Project';
+      const year = project.year || 'Unknown Year';
       const image = project.image || 'https://via.placeholder.com/300x200?text=No+Image';
       const description = project.description || 'No description provided.';
+      const url = project.url || '#';
   
-      // Set article HTML with dynamic heading level
+      // Set article HTML with dynamic heading level and linked title
       article.innerHTML = `
-        <${headingLevel}>${title}</${headingLevel}>
+        <${headingLevel}>
+          <a href="${url}" target="_blank" rel="noopener noreferrer">${title}</a>
+          - ${year}
+        </${headingLevel}>
         <img src="${image}" alt="${title}">
         <p>${description}</p>
       `;
@@ -140,6 +145,7 @@ if ("colorScheme" in localStorage) {
       containerElement.appendChild(article);
     });
   }
+  
   
   export async function fetchGitHubData(username) {
     return fetchJSON(`https://api.github.com/users/${username}`);
