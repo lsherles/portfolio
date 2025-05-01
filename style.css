@@ -215,3 +215,17 @@ label.color-scheme {
   list-style: none;
 }
 
+svg:hover path:not(:hover) {
+  opacity: 0.5;
+}
+path {
+  transition:400ms;
+  cursor: pointer;
+}
+path.selected {
+  fill: oklch(0.63 0.2955 316.16) !important;
+}
+
+.legend-item.selected {
+  --color: oklch(0.63 0.2955 316.16) !important;
+}
