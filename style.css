@@ -140,3 +140,78 @@ label.color-scheme {
   grid-row: 2;
   font-size: 1.2rem;
 }
+.project-text {
+  padding: 0.5em 0;
+}
+
+.project-year {
+  color: #555;
+  margin-top: 0.25em;
+  font-style: italic;
+  font-family: Baskerville;
+  font-variant-numeric: oldstyle-nums;
+}
+
+#projects-pie-plot {
+  flex: 1 1 0;             /* Allow it to shrink */
+  min-width: 5em;          /* Lower minimum width */
+  max-width: 20em;
+  aspect-ratio: 1 / 1;     /* Keep it square */
+  height: auto;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+
+/* Legend container */
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8em, 1fr)); /* ↓ from 9em */
+  gap: 0.5em; /* space between legend items */
+  list-style: none;
+  padding: 1em;
+  margin-top: 1rem;
+  border: 1px solid #ccc; /* add border */
+  border-radius: 0.5rem;  /* rounded corners */
+  background-color: #fafafa; /* optional for contrast */
+}
+
+/* Each legend item */
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem; /* space between swatch and text */
+  font-size: 0.9rem;
+}
+
+/* Swatch style */
+.legend-item .swatch {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: var(--color);
+  border-radius: 50%; /* set to 50% for circle */
+  flex-shrink: 0;
+  margin: 0em;
+}
+.legend-item em {
+  opacity: 0.6; /* between 0 (invisible) and 1 (fully visible) */
+}
+
+.container {
+  display: flex;
+  align-items: center;    /* vertically center-align */
+  gap: 1rem;              /* space between chart and legend */
+  flex-wrap: wrap;        /* responsive fallback for narrow screens */
+}
+
+.container .legend {
+  flex: 1;                /* take remaining width */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+

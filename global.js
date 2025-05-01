@@ -102,7 +102,7 @@ if ("colorScheme" in localStorage) {
  
 
 
-  export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  export function renderProjects(projects, containerElement, headingLevel = 'h2') { 
     // Validate container
     if (!containerElement || !(containerElement instanceof HTMLElement)) {
       console.error('Invalid container element provided.');
@@ -135,16 +135,19 @@ if ("colorScheme" in localStorage) {
       article.innerHTML = `
         <${headingLevel}>
           <a href="${url}" target="_blank" rel="noopener noreferrer">${title}</a>
-          - ${year}
         </${headingLevel}>
         <img src="${image}" alt="${title}">
-        <p>${description}</p>
+        <div class="project-text">
+          <p>${description}</p>
+          <p class="project-year">c. ${year}</p>
+        </div>
       `;
   
       // Append to the container
       containerElement.appendChild(article);
     });
   }
+  
   
   
   export async function fetchGitHubData(username) {
