@@ -13,6 +13,7 @@ renderProjects(projects, projectsContainer, 'h2');
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 
 let selectedIndex = -1;
+let filteredProjects = [...projects];
 
 // Refactor all plotting into one function
 function renderPieChart(projectsGiven) {
@@ -54,14 +55,13 @@ function renderPieChart(projectsGiven) {
       .on('click', () => {
         selectedIndex = selectedIndex === idx ? -1 : idx;
         if (selectedIndex === -1) {
-          renderProjects(projects, projectsContainer, 'h2');
+          renderProjects(filteredProjects, projectsContainer, 'h2');
         } else {
           let selectedYear = newData[selectedIndex].label;
-          let filtered = projects.filter(p => p.year === selectedYear);
+          let filtered = projectsGiven.filter(p => p.year === selectedYear);
           renderProjects(filtered, projectsContainer, 'h2');
         }
 
-        // Re-render pie to reflect selection
         renderPieChart(projectsGiven);
         
       });
@@ -79,10 +79,10 @@ function renderPieChart(projectsGiven) {
 
         // Filter projects and re-render
         if (selectedIndex === -1) {
-          renderProjects(projects, projectsContainer, 'h2');
+          renderProjects(filteredProjects, projectsContainer, 'h2');
         } else {
           let selectedYear = newData[selectedIndex].label;
-          let filtered = projects.filter(p => p.year === selectedYear);
+          let filtered = projectsGiven.filter(p => p.year === selectedYear);
           renderProjects(filtered, projectsContainer, 'h2');
         }
 
@@ -99,7 +99,7 @@ let searchInput = document.querySelector('.searchBar');
 searchInput.addEventListener('input', (event) => {
   let query = event.target.value.toLowerCase();
   selectedIndex = -1; // Reset selected index on search
-  let filteredProjects = projects.filter((project) => {
+  filteredProjects = projects.filter((project) => {
     let values = Object.values(project).join('\n').toLowerCase();
     return values.includes(query);
   });
