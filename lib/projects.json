@@ -7,6 +7,13 @@
         "url": "https://lsherles.github.io/An-LoL-Analysis/"
     },
     {
+        "title": "Interactive Bike Traffic Map",
+        "year": 2025,
+        "image": "../images/boston.png",
+        "description": "Check out this interactive bike traffic map that I made using D3! It contains bike traffic throughout the day in the Boston area.",
+        "url": "https://lsherles.github.io/streetrunner/"
+    },
+    {
         "title": "Interactive Calculator (IN PROGRESS)",
         "year": 2025,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
@@ -25,12 +32,6 @@
         "year": 2024,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Nam impedit ducimus sint quis, ullam, excepturi quod repellat sunt minima nesciunt esse. Nulla blanditiis voluptates laborum quibusdam iusto in nam ipsa quaerat, amet cupiditate omnis facere architecto at aspernatur."
-    },
-    {
-        "title": "Dicta natus nihil nobis!",
-        "year": 2023,
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Iure excepturi earum eligendi deleniti corporis, itaque dolor dolorem officiis minus praesentium aliquam aperiam ipsa commodi quam unde! Vitae illo maiores sunt, nemo unde inventore cumque ducimus tenetur non fuga."
     },
     {
         "title": "Perspiciatis recusandae perferendis provident.",

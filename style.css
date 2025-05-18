@@ -95,6 +95,15 @@ button {
   grid-template-rows: subgrid;
   grid-row: span 3;
 }
+
+.projects img {
+  width: 265px;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
 .projects h2 {
   margin: 0;
 }
@@ -313,3 +322,4 @@ circle.selected {
   stroke: #000;
   stroke-width: 1.5px;
 }
+
