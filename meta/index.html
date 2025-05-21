@@ -13,6 +13,19 @@
     Stats
 </body>
 <div id="stats"></div>
+<div id="commit-filter-ui" style="display: flex; align-items: baseline; margin: 1em 0;">
+  <label for="commit-slider">Show commits until:</label>
+  <input
+    type="range"
+    id="commit-slider"
+    min="0"
+    max="100"
+    value="100"
+    style="margin: 0 1em;"
+  >
+  <time id="commit-time-display" style="margin-left: auto;"></time>
+</div>
+
 <div id="chart"></div>
 <dl id="commit-tooltip" class="info tooltip" hidden>
     <dt>Commit</dt>

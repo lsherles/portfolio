@@ -17,14 +17,43 @@ async function loadData() {
   let xScale, yScale;
   let data = await loadData();
   let commits = processCommits(data);
+  let filteredCommits = commits;
+  let commitProgress = 100;
+
+  let timeScale = d3.scaleTime(
+  [d3.min(commits, (d) => d.datetime), d3.max(commits, (d) => d.datetime)],
+  [0, 100],
+  );
+  let commitMaxTime = timeScale.invert(commitProgress);
+  document.getElementById('commit-time-display').textContent = commitMaxTime.toLocaleString();
+
+document.getElementById('commit-slider').addEventListener('input', (event) => {
+  commitProgress = +event.target.value;
+  commitMaxTime = timeScale.invert(commitProgress);
+  document.getElementById('commit-time-display').textContent = commitMaxTime.toLocaleString();
+
+  // Filter the commits based on new time
+  filterCommitsByTime();
+
+  // Redraw the chart with updated filtered commits
+  updateScatterPlot(data, filteredCommits);
+});
+
+
+
+
   renderCommitInfo(data, commits);
-  renderScatterPlot(data, commits);
+  updateScatterPlot(data, filteredCommits);
 
   
   console.log(commits);
   console.log(commits[0].lines);
 
- 
+ function filterCommitsByTime() {
+  filteredCommits = commits.filter(d => d.datetime <= commitMaxTime);
+}
+
+
   function processCommits(data) {
     return d3
       .groups(data, (d) => d.commit)
@@ -97,7 +126,7 @@ async function loadData() {
   }
   
 
-  function renderScatterPlot(data, commits) {
+  function updateScatterPlot(data, commits) {
     const width = 1000;
     const height = 600;
     const margin = { top: 10, right: 10, bottom: 30, left: 40 };
@@ -111,6 +140,7 @@ async function loadData() {
       height: height - margin.top - margin.bottom,
     };
   
+    d3.select('svg').remove();
     // Create SVG
     const svg = d3
       .select('#chart')
@@ -121,7 +151,7 @@ async function loadData() {
     // Scales
     xScale = d3
       .scaleTime()
-      .domain(d3.extent(commits, d => d.datetime))
+      .domain(d3.extent(filteredCommits, d => d.datetime))
       .range([usableArea.left, usableArea.right])
       .nice();
   
@@ -161,9 +191,9 @@ async function loadData() {
       .range(['#001f3f', '#0074D9', '#FF851B', '#FF4136', '#001f3f']) // blue → orange → red → blue
       .interpolate(d3.interpolateLab);
 
-    const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
+    const [minLines, maxLines] = d3.extent(filteredCommits, (d) => d.totalLines);
     const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 30]); // adjust these values based on your experimentation
-    const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
+    const sortedCommits = d3.sort(filteredCommits, (d) => -d.totalLines);
 
 
     // Draw dots
