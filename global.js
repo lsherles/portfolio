@@ -128,7 +128,11 @@ if ("colorScheme" in localStorage) {
       // Use default placeholder values if missing
       const title = project.title || 'Untitled Project';
       const year = project.year || 'Unknown Year';
-      const image = project.image || 'https://via.placeholder.com/300x200?text=No+Image';
+      let image = project.image || 'https://via.placeholder.com/300x200?text=No+Image';
+      // Fix relative image paths if not fully qualified
+      if (!image.startsWith('http') && !image.startsWith(BASE_PATH)) {
+        image = BASE_PATH + image.replace(/^(\.\/|\/|..\/)*/, '');
+      }      
       const description = project.description || 'No description provided.';
       const url = project.url || '#';
   
