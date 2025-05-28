@@ -1,44 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta</title>
-    <link rel="stylesheet" href="../style.css">
-    <script type="module" src="../global.js"></script>
-    <script type="module" src="./main.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meta</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script type="module" src="../global.js"></script>
+  <script type="module" src="./meta.js"></script>
 </head>
-<h1>Meta</h1>
 <body>
-    Stats
-</body>
-<div id="stats"></div>
-<div id="commit-filter-ui" style="display: flex; align-items: baseline; margin: 1em 0;">
-  <label for="commit-slider">Show commits until:</label>
-  <input
-    type="range"
-    id="commit-slider"
-    min="0"
-    max="100"
-    value="100"
-    style="margin: 0 1em;"
-  >
-  <time id="commit-time-display" style="margin-left: auto;"></time>
+  <h1>Statistics Summary</h1>
+
+  <!-- Label + slider + time on one line -->
+  <div style="display: flex; align-items: center; gap: 1em; margin-bottom: 1em;">
+    <label for="commit-slider" style="white-space: nowrap; flex-shrink: 0;">
+      Show commits until:
+    </label>
+    <input
+      id="commit-slider"
+      type="range"
+      min="0"
+      max="100"
+      value="100"
+      style="flex-grow: 1;"
+    />
+    <time
+      id="commit-time-display"
+      style="margin-left: 1em; white-space: nowrap; min-width: 80px;"
+    >
+      <!-- time will go here -->
+    </time>
+  </div>
+
+
+
+
+  <!-- Stats section -->
+  <div id="stats" style="margin-bottom: 1em;"></div>
+
+  <!-- Chart and tooltip -->
+  <div id="scrolly-1">
+  <div id="scatter-story"></div>
+  <div id="scatter-plot">
+    <div id="chart"></div>
+  </div>
 </div>
 
-<div id="chart"></div>
-<dl id="commit-tooltip" class="info tooltip" hidden>
+  <dl id="commit-tooltip" class="info tooltip" hidden>
     <dt>Commit</dt>
     <dd>
       <a href="" id="commit-link" target="_blank"></a>
     </dd>
-  
+
     <dt>Date</dt>
     <dd id="commit-date"></dd>
-  
+
     <!-- Add: Time, author, lines edited -->
   </dl>
+
   <p id="selection-count">No commits selected</p>
+
   <dl id="language-breakdown" class="stats"></dl>
 
+  <!-- File info section -->
+  <dl id="files"></dl>
+
+</body>
 </html>

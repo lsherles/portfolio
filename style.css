@@ -298,9 +298,11 @@ circle {
   transition: 200ms;
   transform-origin: center;
   transform-box: fill-box;
-  @starting-style {
+@starting-style {
   r: 0;
+  transition: all 200ms, r calc(var(--r) * 100ms);
 }
+
 }
 
 circle:hover {
@@ -327,4 +329,95 @@ circle.selected {
 }
 
 
+.stats {
+  display: flex;
+  gap: 3em;
+}
 
+.stat {
+  flex: 1;            /* each stat takes equal share of available width */
+  min-width: 120px;   /* optional: prevents them from getting too narrow */
+  max-width: 200px;   /* optional: prevents them from getting too wide */
+  text-align: center; /* center contents */
+}
+
+.stat dt,
+.stat dd {
+  margin: 0;
+  display: block;
+}
+
+.stat dt {
+  font-weight: bold;
+  margin-bottom: 0.3em;
+}
+
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+
+  > div {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+
+  dt {
+    grid-column: 1;
+  }
+
+  dd {
+    grid-column: 2;
+  }
+}
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: steelblue;
+  border-radius: 50%;
+  background-color: var(--color);
+
+}
+
+dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+dt small {
+  display: block;
+  font-size: 0.8em;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+
+
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+}
+
+#scrolly-1 > * {
+  flex: 1;
+}
+
+#scatter-story {
+  position: relative;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  height: 50vh;
+}
+.step {
+  padding-bottom: 10vh; /* ensures each step takes up enough space */
+}
