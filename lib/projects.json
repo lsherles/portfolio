@@ -1,8 +1,15 @@
 [
     {
+        "title": "Stockfish for Soccer",
+        "year": 2025,
+        "image": "../images/soccerimg.png",
+        "description": "An analysis of soccer passing sequences using a custom-built predictive model, this website aims to provide insights into passing patterns and strategies in soccer games.",
+        "url": "https://zcochran27.github.io/Soccer-Events-Analyzed/"
+    },
+    {
         "title": "eSports Predictive Analysis",
         "year": 2025,
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "image": "../images/espmss.png",
         "description": "Predicting the outcomes within a game of League of Legends using predictive modeling techniques. The project aims to provide insights into the factors that influence the outcome of a game, helping players and teams make informed decisions.",
         "url": "https://lsherles.github.io/An-LoL-Analysis/"
     },
@@ -14,10 +21,10 @@
         "url": "https://lsherles.github.io/streetrunner/"
     },
     {
-        "title": "Interactive Calculator (IN PROGRESS)",
+        "title": "Empty Project",
         "year": 2025,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Check out this interactive calculator that I built using React! It features a sleek design and allows users to perform basic arithmetic operations with ease.",
+        "description": "No description.",
         "url": ""
     },
     {
@@ -26,12 +33,6 @@
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "An analysis of how teams in the NBA are affected by injuries and varying amounts of rest. The project utilizes data visualization techniques to present the findings in an engaging and informative manner.",
         "url": "https://github.com/lsherles/NBA-Rest-Days-Analysis"
-    },
-    {
-        "title": "Esse doloremque sequi magni.",
-        "year": 2024,
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Nam impedit ducimus sint quis, ullam, excepturi quod repellat sunt minima nesciunt esse. Nulla blanditiis voluptates laborum quibusdam iusto in nam ipsa quaerat, amet cupiditate omnis facere architecto at aspernatur."
     },
     {
         "title": "Perspiciatis recusandae perferendis provident.",
