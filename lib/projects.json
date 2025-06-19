@@ -31,9 +31,9 @@
     {
         "title": "NBA Injuries and Rest Days Analysis",
         "year": 2024,
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "image": "../images/nbpng.png",
         "description": "An analysis of how teams in the NBA are affected by injuries and varying amounts of rest. The project utilizes data visualization techniques to present the findings in an engaging and informative manner.",
-        "url": "https://github.com/lsherles/NBA-Rest-Days-Analysis"
+        "url": "https://github.com/lsherles/NBA-Rest-Days-Analysis/blob/main/Full%20Proposal.ipynb"
     },
     {
         "title": "Perspiciatis recusandae perferendis provident.",
