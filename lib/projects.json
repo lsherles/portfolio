@@ -14,19 +14,20 @@
         "url": "https://lsherles.github.io/An-LoL-Analysis/"
     },
     {
+        "title": "The Ideal Running Tool",
+        "year": 2025,
+        "image": "../images/irt.png",
+        "description": "This website aims to provide the ideal running workout given a person's biometrics and workout goals.",
+        "url": "https://lsherles.github.io/WeLoveSpeed/"
+    },
+    {
         "title": "Interactive Bike Traffic Map",
         "year": 2025,
         "image": "../images/boston.png",
         "description": "Check out this interactive bike traffic map that I made using D3! It contains bike traffic throughout the day in the Boston area.",
         "url": "https://lsherles.github.io/streetrunner/"
     },
-    {
-        "title": "Empty Project",
-        "year": 2025,
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "No description.",
-        "url": ""
-    },
+
     {
         "title": "NBA Injuries and Rest Days Analysis",
         "year": 2024,
