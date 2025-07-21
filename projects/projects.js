@@ -41,7 +41,7 @@ function renderPieChart(projectsGiven) {
   legend.selectAll('*').remove();
 
   // arc generator and color scale
-  let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
+  let arcGenerator = d3.arc().innerRadius(1).outerRadius(48);
   let colors = d3.scaleOrdinal(d3.schemePaired);
 
   // update paths

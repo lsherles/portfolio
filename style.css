@@ -183,6 +183,7 @@ label.color-scheme {
   border: 1px solid #ccc; /* add border */
   border-radius: 0.5rem;  /* rounded corners */
   background-color: #fafafa; /* optional for contrast */
+  color: #222
 }
 
 /* Each legend item */
@@ -199,12 +200,12 @@ label.color-scheme {
   width: 1em;
   height: 1em;
   background-color: var(--color);
-  border-radius: 50%; /* set to 50% for circle */
+  border-radius: 50%; /* circular swatch */
   flex-shrink: 0;
   margin: 0em;
 }
 .legend-item em {
-  opacity: 0.6; /* between 0 (invisible) and 1 (fully visible) */
+  opacity: 0.6; /* lighter text for emphasis */
 }
 
 .container {
